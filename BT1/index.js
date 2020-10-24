@@ -15,7 +15,6 @@ inputWork.addEventListener("keyup", (e) => {
     }
 });
 show();
-console.log(Date.getDate());
 
 function show() {
     let html = "";
