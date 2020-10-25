@@ -24,7 +24,7 @@ function show() {
         listWork.map((value, key) => {
             if (value !== "") {
                 if (checkList.indexOf(key) > -1) {
-                    html += `<div class="work__wrapper"><input onclick="check(${key})" class="check" type="checkbox" id="check__${key}" checked><div class="work__items" id="work__${key}" onclick="edit(${key})" data-value="${value}" style="text-decoration:line-through">${value}</div><img class="garbage" src="garbage.png" onclick="remove(${key})"/></div>`;
+                    html += `<div class="work__wrapper"><input onclick="check(${key})" class="check" type="checkbox" id="check__${key}" checked><div class="work__items" id="work__${key}" onclick="edit(${key})" data-value="${value}" style="text-decoration:line-through; color: #ad9c87">${value}</div><img class="garbage" src="garbage.png" onclick="remove(${key})"/></div>`;
                 } else {
                     html += `<div class="work__wrapper"><input onclick="check(${key})" class="check" type="checkbox" id="check__${key}"><div class="work__items" id="work__${key}" onclick="edit(${key})" data-value="${value}">${value}</div><img class="garbage" src="garbage.png" onclick="remove(${key})"/></div>`;
                 }

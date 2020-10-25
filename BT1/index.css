@@ -88,3 +88,8 @@ input {
     width: 20px;
     margin-right: 1%
 }
+
+.checked {
+    text-decoration: line-through;
+    color: "#ad9c87"
+}
