@@ -1,22 +1,6 @@
-var listWork = [];
-var flag;
-var checkList = [];
-var status = "create";
-const isEmpty = (currentValue) => currentValue === "";
-const inputWork = document.getElementById("input__field");
-const btnWork = document.getElementById("change__btn");
-const contentBox = document.getElementById("content");
-const works = document.getElementsByClassName("work__items");
-inputWork.focus();
-inputWork.addEventListener("keyup", (e) => {
-    if (e.keyCode === 13) {
-        e.preventDefault();
-        btnWork.click();
-    }
-});
-show();
+export const isEmpty = (currentValue) => currentValue === "";
+export function show() {
 
-function show() {
     let html = "";
     if (listWork.every(isEmpty)) {
         contentBox.innerHTML = `<p style="text-align: center;">List your work here!</p>`;
@@ -34,13 +18,13 @@ function show() {
     }
 }
 
-function add() {
+export function add() {
     listWork.push(inputWork.value);
     show();
     inputWork.value = "";
 }
 
-function remove(n) {
+export function remove(n) {
     if (confirm("Do you want to remove?") ==
         true) {
         listWork[n] = "";
@@ -52,7 +36,7 @@ function remove(n) {
     inputWork.value = "";
 }
 
-function edit(n) {
+export function edit(n) {
     btnWork.innerHTML = "Edit";
     btnWork.setAttribute("onclick", "change()");
     inputWork.value = document.getElementById(`work__${n}`).getAttribute('data-value');
@@ -60,7 +44,7 @@ function edit(n) {
     inputWork.focus();
 }
 
-function change() {
+export function change() {
     listWork[flag] = inputWork.value;
     show();
     inputWork.value = "";
@@ -68,7 +52,7 @@ function change() {
     btnWork.setAttribute("onclick", "add()");
 }
 
-function check(n) {
+export function check(n) {
     if (document.getElementById(`check__${n}`).checked) {
         checkList.push(n);
         document.getElementById(`work__${n}`).style.textDecoration = "line-through";
