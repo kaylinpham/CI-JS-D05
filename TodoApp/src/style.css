@@ -56,7 +56,8 @@ input {
 .work__items {
     cursor: pointer;
     display: inline-block;
-    width: 95%
+    width: 95%;
+    box-sizing: border-box;
 }
 
 .garbage {
