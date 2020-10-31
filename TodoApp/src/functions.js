@@ -1,5 +1,8 @@
 export const isEmpty = (currentValue) => currentValue === "";
-
+var listWork = [];
+var flag;
+var checkList = [];
+var status = 'create';
 export function show() {
     let html = "";
     if (listWork.every(isEmpty)) {
