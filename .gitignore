@@ -103,4 +103,4 @@ dist
 # TernJS port file
 .tern-port
 
-./TodoApp/node_modules
+/TodoApp/node_modules
