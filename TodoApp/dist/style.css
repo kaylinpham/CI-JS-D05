@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap);
+:root {
+    --form-color: #c9deec;
+    background-color: #90bfeb;
+    font-family: Inter, sans-serif
+}
+
+h1 {
+    text-align: center
+}
+
+button {
+    display: inline;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 100%
+}
+
+input {
+    border: none;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px;
+    width: 50%;
+    border-radius: 5px;
+    font-size: 100%
+}
+
+.input__wrapper {
+    text-align: center
+}
+
+#input__field {
+    margin-right: 0
+}
+
+#change__btn {
+    margin-left: 0
+}
+
+.work__content {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    width: 60%;
+    margin: auto;
+    padding: 0 10px;
+    border: 3px solid #ad9c87
+}
+
+.work__items {
+    cursor: pointer;
+    display: inline-block;
+    width: 95%;
+    box-sizing: border-box;
+}
+
+.garbage {
+    width: 30px;
+    position: absolute;
+    right: 20%;
+    cursor: pointer
+}
+
+.work__wrapper {
+    border-bottom: 1px solid #ad9c87;
+    padding: 10px;
+    padding-left: 0;
+    display: flex;
+    align-items: center
+}
+
+.work__wrapper:last-child {
+    border: none
+}
+
+.work__wrapper:hover {
+    background-color: #e6e1db
+}
+
+.check {
+    display: inline;
+    height: 20px;
+    width: 20px;
+    margin-right: 1%
+}
