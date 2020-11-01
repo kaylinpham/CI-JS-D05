@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const url = "https://5f71cb3c64a3720016e60e83.mockapi.io/api/members";
+        //GET
+        const getAllMembers = () => {
+            fetch(url).then((result) => {
+                return result.json();
+            }).then((list) => {
+                console.log(list);
+            }).catch((err) => console.log(err.massage));
+        }
+
+        //POST
+        const postMember = (member) => {
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(member),
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            }).catch((err) => console.log(err.massage));
+        }
+
+        //UPDATE
+        const updateMember = (id, data) => {
+            new Promise((resolve) => {
+                const url_update = url + `/${id}`;
+                resolve(url_update);
+            }).all([(updatedUrl) => console.log(`Update member: ${updatedUrl}`), (updatedUrl) => {
+                fetch(updatedUrl, {
+                    method: 'PUT',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                })
+            }]).catch((err) => console.log(err.massage));
+        }
+
+        //DELETE
+        const deleteMember = (id) => {
+            new Promise((resolve) => {
+                const url_delete = url + `/${id}`;
+                resolve(url_delete);
+            }).all([(deleteUrl) => console.log(`Delete member: ${deleteUrl}`), (deleteUrl) => {
+                fetch(deleteUrl, {
+                    method: 'DELETE'
+                })
+            }]).catch((err) => console.log(err.massage));
+        }
+    </script>
+</body>
+
+</html>
