@@ -1,61 +1,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 
 <body>
     <script>
-        const url = "https://5f71cb3c64a3720016e60e83.mockapi.io/api/members";
+        const url = "https://5df51b6d7305820014bcc719.mockapi.io/users";
         //GET
         const getAllMembers = () => {
-            fetch(url).then((result) => {
-                return result.json();
-            }).then((list) => {
-                console.log(list);
-            }).catch((err) => console.log(err.massage));
-        }
-
+            fetch(url)
+                .then((result) => {
+                    return result.json();
+                })
+                .then((list) => {
+                    console.log(list);
+                })
+                .catch((err) => console.log(err.massage));
+        };
+        getAllMembers();
         //POST
-        const postMember = (member) => {
+        const postMember = (url, member) => {
             fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(member),
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            }).catch((err) => console.log(err.massage));
-        }
-
+                    method: "POST",
+                    body: JSON.stringify(member),
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                })
+                .then((res) => {
+                    return res.json();
+                })
+                .then((newUser) => {
+                    console.log("Post Successfully!");
+                    console.log(newUser);
+                })
+                .catch((err) => console.log(err.massage));
+        };
+        let person = {
+            name: "Nguyen Thi Tra My",
+            role: "Student",
+        };
+        // postMember(url, person);
         //UPDATE
-        const updateMember = (id, data) => {
-            new Promise((resolve) => {
-                const url_update = url + `/${id}`;
-                resolve(url_update);
-            }).all([(updatedUrl) => console.log(`Update member: ${updatedUrl}`), (updatedUrl) => {
-                fetch(updatedUrl, {
-                    method: 'PUT',
+        const updateMember = (url_target, id, data) => {
+            const url_update = url_target + `/${id}`;
+            fetch(url_update, {
+                    method: "PUT",
                     body: JSON.stringify(data),
                     headers: {
-                        'Content-type': 'application/json'
-                    }
+                        "Content-type": "application/json",
+                    },
                 })
-            }]).catch((err) => console.log(err.massage));
-        }
-
+                .then((res) => {
+                    console.log(res);
+                    return res.json();
+                })
+                .then((userUpdate) => {
+                    // PUT có trả về kết quả của 1 user mới sau khi update xong
+                    console.log(userUpdate);
+                })
+                .catch((err) => console.log(err));
+        };
+        // updateMember(url, 4, person);
         //DELETE
-        const deleteMember = (id) => {
-            new Promise((resolve) => {
-                const url_delete = url + `/${id}`;
-                resolve(url_delete);
-            }).all([(deleteUrl) => console.log(`Delete member: ${deleteUrl}`), (deleteUrl) => {
-                fetch(deleteUrl, {
-                    method: 'DELETE'
+        const deleteMember = (url, id) => {
+            url_target = url_target + /${id};
+            fetch(url_target, {
+                    method: "DELETE",
                 })
-            }]).catch((err) => console.log(err.massage));
-        }
+                .then((res) => {
+                    console.log(res);
+                    return res.json();
+                })
+                .then((userDelete) => {
+                    console.log(userDelete);
+                })
+                .catch((err) => console.log(err));
+        };
     </script>
 </body>
 
