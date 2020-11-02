@@ -67,7 +67,7 @@
         // updateMember(url, 4, person);
         //DELETE
         const deleteMember = (url, id) => {
-            url_target = url_target + /${id};
+            const url_target = url + `/${id}`;
             fetch(url_target, {
                     method: "DELETE",
                 })
@@ -80,6 +80,7 @@
                 })
                 .catch((err) => console.log(err));
         };
+        deleteMember(url, 4);
     </script>
 </body>
 
